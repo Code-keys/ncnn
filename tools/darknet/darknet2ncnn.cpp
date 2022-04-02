@@ -306,6 +306,8 @@ void addActivationLayer(Section* s, std::deque<Section*>::iterator& it, std::deq
         act->layer_type = "Sigmoid";
     else if (s->activation == "swish")
         act->layer_type = "Swish";
+    else if (s->activation == "silu")
+        act->layer_type = "Silu";
 
     if (s->batch_normalize)
         act->layer_name = s->layer_name + "_bn";
@@ -439,7 +441,7 @@ void parse_cfg(std::deque<Section*>& dnet, int merge_output)
 
             if (s->activation.size() > 0)
             {
-                if (s->activation == "relu" || s->activation == "leaky" || s->activation == "mish" || s->activation == "logistic" || s->activation == "swish")
+                if (s->activation == "relu" || s->activation == "leaky" || s->activation == "mish" || s->activation == "logistic" || s->activation == "swish" || s->activation == "silu")
                 {
                     addActivationLayer(s, it, dnet);
                 }
@@ -470,7 +472,7 @@ void parse_cfg(std::deque<Section*>& dnet, int merge_output)
 
             if (s->activation.size() > 0)
             {
-                if (s->activation == "relu" || s->activation == "leaky" || s->activation == "mish" || s->activation == "logistic" || s->activation == "swish")
+                if (s->activation == "relu" || s->activation == "leaky" || s->activation == "mish" || s->activation == "logistic" || s->activation == "swish" || s->activation == "silu")
                 {
                     addActivationLayer(s, it, dnet);
                 }

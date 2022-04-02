@@ -67,6 +67,7 @@
 * [SELU](#selu)
 * [ShuffleChannel](#shufflechannel)
 * [Sigmoid](#sigmoid)
+* [Silu](#silu)
 * [Slice](#slice)
 * [Softmax](#softmax)
 * [Softplus](#softplus)
@@ -1528,6 +1529,14 @@ if reverse == 1     y = shufflechannel(x) by channel / group
 # Sigmoid
 ```
 y = 1 / (1 + exp(-x))
+```
+
+* one_blob_only
+* support_inplace
+
+# Silu
+```
+y = x / (1 + exp(-x))
 ```
 
 * one_blob_only
